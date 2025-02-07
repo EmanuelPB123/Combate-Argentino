@@ -1,0 +1,77 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cronicas del Combate Argentino</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Cronicas del Combate Argentino</h1>
+    
+    <div class="controles">
+      <label for="nivel-seleccion"></label>
+      <select id="nivel-seleccion">
+        <option value="Guerra de Independencia (1810-1818)">Guerra de Independencia (1810-1818)</option>
+        <option value="Guerra Civil (1828-1831)">Guerra Civil (1828-1831)</option>
+        <option value="Guerra del Paraguay (1864-1870)">Guerra del Paraguay (1864-1870)</option>
+        <option value="Guerra de Malvinas (1982)">Guerra de Malvinas (1982)</option>
+      </select>
+    </div>
+
+    <div id="tutorial-container">
+      <details>
+        <summary>Tutorial de Juego</summary>
+        <div id="tutorial"></div>
+      </details>
+    </div>
+
+        <div id="unidades-container">
+      <details>
+        <summary>Detalles de Unidades</summary>
+        <div id="unidades-detalles"></div>
+      </details>
+    </div>
+
+    <div id="estado" class="estado"></div>
+
+    <div id="tablero" class="tablero"></div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+  <script type="module">
+    // Obtener el elemento select
+    const selectNivel = document.getElementById('nivel-seleccion');
+
+    // Función para cambiar el fondo del body basado en la opción seleccionada
+    selectNivel.addEventListener('change', function() {
+        const selectedValue = selectNivel.value;
+        const h1Element = document.querySelector('h1'); // Obtener el h1
+
+        switch (selectedValue) {
+            case "Guerra de Independencia (1810-1818)":
+                document.body.style.backgroundColor = "#ffdcdc"; // Color de fondo para Guerra de Independencia
+                h1Element.style.borderBottom = "3px solid #ff2121"; // Rojo para Guerra de Independencia
+                break;
+            case "Guerra Civil (1828-1831)":
+                document.body.style.backgroundColor = "#a7a7a7ce"; // Color de fondo para Guerra Civil
+                h1Element.style.borderBottom = "3px solid #808080"; // Gris para Guerra Civil
+                break;
+            case "Guerra del Paraguay (1864-1870)":
+                document.body.style.backgroundColor = "#7c9aa8"; // Color de fondo para Guerra del Paraguay
+                h1Element.style.borderBottom = "3px solid #22759b"; // Verde para Guerra del Paraguay
+                break;
+            case "Guerra de Malvinas (1982)":
+                document.body.style.backgroundColor = "#678b73"; // Color de fondo para Guerra de Malvinas
+                h1Element.style.borderBottom = "3px solid #167e39"; // Azul para Guerra de Malvinas
+                break;
+            default:
+                document.body.style.backgroundColor = "#ffffff"; // Color de fondo por defecto
+                h1Element.style.borderBottom = "3px solid #000000"; // Borde por defecto (negro)
+        }
+    });
+</script>
+
+
+  </script>
+</body>
+</html>
